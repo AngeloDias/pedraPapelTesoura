@@ -18,18 +18,36 @@ class pedraPapelTesoura extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {escolhaUsuario: ""};
+    this.state = {escolhaUsuario: "", escolhaComputador: ""};
   }
 
   jokenpo(escolhaUsuario) {
-    this.setState({escolhaUsuario: escolhaUsuario});
+    var escolhaRandomNum = Math.floor(Math.random() * 3);
+    var strEscolhaCompt = "";
+
+    switch(escolhaRandomNum) {
+      case 0:
+        strEscolhaCompt = "pedra";
+
+        break;
+      case 1:
+        strEscolhaCompt = "papel";
+
+        break;
+      case 2:
+        strEscolhaCompt = "tesoura";
+        
+        break;
+    }
+
+    this.setState({escolhaUsuario: escolhaUsuario, escolhaComputador: strEscolhaCompt});
   }
 
   render() {
     return (
       <View>
 
-        <Text>Escolha do computador</Text>
+        <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
         <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
         <Text>Resultado</Text>
 
