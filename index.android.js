@@ -13,35 +13,30 @@ import {
   View
 } from 'react-native';
 
-class MeuComponente extends Component {
-
-  render() {
-    return (
-      <View>
-        <Text>{this.props.teste}</Text>
-      </View>
-    );
-  }
-
-}
-
 class pedraPapelTesoura extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state = {texto: 'Texto teste 2'};
+    this.state = {escolhaUsuario: ""};
   }
 
-  alteraTexto() {
-    this.setState({texto: 'Outra coisa '});
+  jokenpo(escolhaUsuario) {
+    this.setState({escolhaUsuario: escolhaUsuario});
   }
 
   render() {
     return (
       <View>
-        <MeuComponente teste={this.state.texto}/>
-        <Button title='Botão' onPress={() => {this.alteraTexto()}} />
+
+        <Text>Escolha do computador</Text>
+        <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
+        <Text>Resultado</Text>
+
+        <Button title="pedra" onPress={() => {this.jokenpo("pedra")}}/>
+        <Button title="papel" onPress={() => {this.jokenpo("papel")}}/>
+        <Button title="tesoura" onPress={() => {this.jokenpo("tesoura")}}/>
+
       </View>
     );
   }
