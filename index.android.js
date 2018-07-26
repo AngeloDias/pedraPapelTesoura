@@ -48,10 +48,10 @@ class pedraPapelTesoura extends Component {
         resultado = "Empate";
 
       }else if (escolhaUsuario == "papel") {
-        resultado = "Usuário ganhou!";
+        resultado = "Você ganhou!";
 
       } else if(escolhaUsuario == "tesoura"){
-        resultado = "Computador ganhou!";
+        resultado = "Você perdeu!";
       }
 
     } else if (strEscolhaCompt == "papel") {
@@ -59,21 +59,21 @@ class pedraPapelTesoura extends Component {
         resultado = "Empate";
 
       } else if(escolhaUsuario == "tesoura") {
-        resultado = "Usuário ganhou!";
+        resultado = "Você ganhou!";
 
       } else if(escolhaUsuario = "pedra") {
-        resultado = "Computador ganhou!";
+        resultado = "Você perdeu!";
       }
 
     } else if(strEscolhaCompt == "tesoura") {
       if(escolhaUsuario == "papel") {
-        resultado = "Computador ganhou!";
+        resultado = "Você perdeu!";
 
       } else if(escolhaUsuario == "tesoura") {
         resultado = "Empate";
 
       } else if(escolhaUsuario == "pedra"){
-        resultado = "Usuário ganhou!";
+        resultado = "Você ganhou!";
       }
 
     }
@@ -103,10 +103,12 @@ class pedraPapelTesoura extends Component {
         </View>
 
         <View style={styles.palco}>
+
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
-          <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
-          <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
+          <Icone escolha={this.state.escolhaComputador} jogador="Computador"></Icone>
+          <Icone escolha={this.state.escolhaUsuario} jogador="Você"></Icone>
+
         </View>
 
       </View>
@@ -134,15 +136,65 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "red",
-    height: 36
+    height: 57
+  },
+
+  imageSize: {
+    width: 80,
+    height: 80
+  },
+
+  icone: {
+    alignItems: "center"
+  },
+
+  txtJogador: {
+    fontSize: 20
   }
 });
+
+class Icone extends Component {
+  render() {
+
+      if(this.props.escolha == "papel") {
+
+        return (
+          <View style={styles.icone}>
+            <Text style={styles.txtJogador}>{this.props.jogador}</Text>
+            <Image style={styles.imageSize} source={require("./imgs/papel.png")}/>
+          </View>
+        );
+
+      } else if(this.props.escolha == "pedra") {
+
+        return (
+          <View style={styles.icone}>
+            <Text style={styles.txtJogador}>{this.props.jogador}</Text>
+            <Image style={styles.imageSize} source={require("./imgs/pedra.png")}/>
+          </View>
+        );
+
+      } else if(this.props.escolha == "tesoura") {
+
+        return (
+          <View style={styles.icone}>
+            <Text style={styles.txtJogador}>{this.props.jogador}</Text>
+            <Image style={styles.imageSize} source={require("./imgs/tesoura.png")}/>
+          </View>
+        );
+
+      } else {
+        return false;
+      }
+
+  };
+}
 
 class Topo extends Component {
   render(){
     return (
       <View>
-        <Image source={require('./imgs/jokenpo.png')}/>
+        <Image style={{width: 325, height: 200}} source={require('./imgs/jokenpo.png')}/>
       </View>
     );
   };
