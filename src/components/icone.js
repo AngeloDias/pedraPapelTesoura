@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {
+  StyleSheet,
   View,
   Text,
   Image
@@ -14,7 +15,7 @@ class Icone extends Component {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("./imgs/papel.png")}/>
+            <Image style={styles.imageSize} source={require("../../imgs/papel.png")}/>
           </View>
         );
 
@@ -23,7 +24,7 @@ class Icone extends Component {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("./imgs/pedra.png")}/>
+            <Image style={styles.imageSize} source={require("../../imgs/pedra.png")}/>
           </View>
         );
 
@@ -32,7 +33,7 @@ class Icone extends Component {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("./imgs/tesoura.png")}/>
+            <Image style={styles.imageSize} source={require("../../imgs/tesoura.png")}/>
           </View>
         );
 
@@ -42,3 +43,21 @@ class Icone extends Component {
 
   };
 }
+
+const styles = StyleSheet.create({
+
+  imageSize: {
+    width: 80,
+    height: 80
+  },
+
+  icone: {
+    alignItems: "center"
+  },
+
+  txtJogador: {
+    fontSize: 20
+  }
+});
+
+export default Icone;

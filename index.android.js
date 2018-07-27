@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import Topo from './src/components/topo';
+import Icone from './src/components/icone';
 
 import {
   AppRegistry,
@@ -139,19 +140,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "red",
     height: 57
-  },
-
-  imageSize: {
-    width: 80,
-    height: 80
-  },
-
-  icone: {
-    alignItems: "center"
-  },
-
-  txtJogador: {
-    fontSize: 20
   }
 });
 
