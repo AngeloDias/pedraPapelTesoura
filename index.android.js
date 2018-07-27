@@ -13,8 +13,7 @@ import {
   StyleSheet,
   Text,
   Button,
-  View,
-  Image
+  View
 } from 'react-native';
 
 class pedraPapelTesoura extends Component {
@@ -26,10 +25,9 @@ class pedraPapelTesoura extends Component {
   }
 
   jokenpo(escolhaUsuario) {
-    var escolhaRandomNum = Math.floor(Math.random() * 3);
-    var strEscolhaCompt = "";
+    let strEscolhaCompt = "";
 
-    switch(escolhaRandomNum) {
+    switch(Math.floor(Math.random() * 3)) {
       case 0:
         strEscolhaCompt = "pedra";
 
@@ -42,40 +40,45 @@ class pedraPapelTesoura extends Component {
         strEscolhaCompt = "tesoura";
         
         break;
+
+      default:
+        strEscolhaCompt = "";
+
+        break;
     }
 
-    var resultado = "";
+    let resultado = "";
 
-    if(strEscolhaCompt == "pedra") {
-      if(escolhaUsuario == "pedra") {
+    if(strEscolhaCompt === "pedra") {
+      if(escolhaUsuario === "pedra") {
         resultado = "Empate";
 
-      }else if (escolhaUsuario == "papel") {
+      }else if (escolhaUsuario === "papel") {
         resultado = "Você ganhou!";
 
-      } else if(escolhaUsuario == "tesoura"){
+      } else if(escolhaUsuario === "tesoura"){
         resultado = "Você perdeu!";
       }
 
-    } else if (strEscolhaCompt == "papel") {
-      if(escolhaUsuario == "papel") {
+    } else if (strEscolhaCompt === "papel") {
+      if(escolhaUsuario === "papel") {
         resultado = "Empate";
 
-      } else if(escolhaUsuario == "tesoura") {
+      } else if(escolhaUsuario === "tesoura") {
         resultado = "Você ganhou!";
 
-      } else if(escolhaUsuario = "pedra") {
+      } else if(escolhaUsuario === "pedra") {
         resultado = "Você perdeu!";
       }
 
-    } else if(strEscolhaCompt == "tesoura") {
-      if(escolhaUsuario == "papel") {
+    } else if(strEscolhaCompt === "tesoura") {
+      if(escolhaUsuario === "papel") {
         resultado = "Você perdeu!";
 
-      } else if(escolhaUsuario == "tesoura") {
+      } else if(escolhaUsuario === "tesoura") {
         resultado = "Empate";
 
-      } else if(escolhaUsuario == "pedra"){
+      } else if(escolhaUsuario === "pedra"){
         resultado = "Você ganhou!";
       }
 
@@ -109,8 +112,8 @@ class pedraPapelTesoura extends Component {
 
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
-          <Icone escolha={this.state.escolhaComputador} jogador="Computador"></Icone>
-          <Icone escolha={this.state.escolhaUsuario} jogador="Você"></Icone>
+          <Icone escolha={this.state.escolhaComputador} jogador="Computador"/>
+          <Icone escolha={this.state.escolhaUsuario} jogador="Você"/>
 
         </View>
 

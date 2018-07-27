@@ -5,11 +5,13 @@ import {
   Image
 } from 'react-native';
 
+const imageFromPath = require('../../imgs/jokenpo.png');
+
 class Topo extends Component {
   render(){
     return (
       <View>
-        <Image style={{width: 325, height: 200}} source={require('../../imgs/jokenpo.png')}/>
+        <Image style={{width: 325, height: 200}} source={imageFromPath}/>
       </View>
     );
   };

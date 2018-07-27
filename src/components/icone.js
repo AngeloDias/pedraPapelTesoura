@@ -7,33 +7,38 @@ import {
   Image
 } from 'react-native';
 
+const imagePapelFromPath = require("../../imgs/papel.png");
+const imagePedraFromPath = require("../../imgs/pedra.png");
+const imageTesouraFromPath = require("../../imgs/tesoura.png");
+
 class Icone extends Component {
+
   render() {
 
-      if(this.props.escolha == "papel") {
+      if(this.props.escolha === "papel") {
 
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("../../imgs/papel.png")}/>
+            <Image style={styles.imageSize} source={imagePapelFromPath}/>
           </View>
         );
 
-      } else if(this.props.escolha == "pedra") {
+      } else if(this.props.escolha === "pedra") {
 
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("../../imgs/pedra.png")}/>
+            <Image style={styles.imageSize} source={imagePedraFromPath}/>
           </View>
         );
 
-      } else if(this.props.escolha == "tesoura") {
+      } else if(this.props.escolha === "tesoura") {
 
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-            <Image style={styles.imageSize} source={require("../../imgs/tesoura.png")}/>
+            <Image style={styles.imageSize} source={imageTesouraFromPath}/>
           </View>
         );
 
