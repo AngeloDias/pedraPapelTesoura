@@ -5,6 +5,8 @@
  */
 
 import React, { Component } from 'react';
+import Topo from './src/component/topo';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -187,16 +189,6 @@ class Icone extends Component {
         return false;
       }
 
-  };
-}
-
-class Topo extends Component {
-  render(){
-    return (
-      <View>
-        <Image style={{width: 325, height: 200}} source={require('./imgs/jokenpo.png')}/>
-      </View>
-    );
   };
 }
 
